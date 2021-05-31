@@ -63,9 +63,9 @@ public class Bird {
                 if(dealtY > MAX_UPDEALTY){
                     dealtY = MAX_UPDEALTY;
                 }
-                y-=dealtY;
+                y -= dealtY;
                 //撞到上沿
-                if(y < (images[state].getHeight(null)>>1) + TOP_BAR_HEIGHT){
+                if(y < (images[state].getHeight(null) >>1 ) + TOP_BAR_HEIGHT){
                     state = STATE_DIE;
                     reset();
                 }
@@ -75,9 +75,9 @@ public class Bird {
                 if(dealtY > MAX_DOWNDEALTY){
                     dealtY = MAX_DOWNDEALTY;
                 }
-                y+=dealtY;
+                y += dealtY;
                 //撞到下沿
-                if(y > TOP_BAR_HEIGHT - (images[state].getHeight(null)>>1)){
+                if(y > Constant.FRAME_HEIGHT - (images[state].getHeight(null)>>1)){
                     state = STATE_DIE;
                     reset();
                 }

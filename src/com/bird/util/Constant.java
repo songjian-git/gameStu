@@ -27,5 +27,5 @@ public class Constant {
     public static final Color BK_COLOR = new Color(0x4bc4df);
 
     //定义标题栏的高度
-    public static final int TOP_BAR_HEIGHT = 25;
+    public static final int TOP_BAR_HEIGHT = 2;
 }

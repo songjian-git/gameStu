@@ -4,6 +4,8 @@ package com.bird.main;
 import static com.bird.util.Constant.*;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -16,6 +18,10 @@ public class GameFrame extends Frame implements Runnable{
 
     //创建游戏背景对象
     private GameBackGround backGround;
+
+    //定义小鸟对象
+    private Bird bird;
+
     //在构造方法中对我们的游戏窗口做初始化工作
     public GameFrame(){
         initFrame();
@@ -43,9 +49,42 @@ public class GameFrame extends Frame implements Runnable{
                 System.exit(0);
             }
         });
+        //添加按键监听
+        addKeyListener(new MyKeyListener());
+    }
+    //定义用于接受按键事件对象的内部类
+    class MyKeyListener implements KeyListener{
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        //处理按键被按下的事件
+        @Override
+        public void keyPressed(KeyEvent e) {
+            //捕获的系统传入的按键的虚拟键值
+            int keyCode = e.getKeyCode();
+            //当按下空格键，用力向上飞
+            if(keyCode == KeyEvent.VK_SPACE){
+                bird.fly();
+            }
+        }
+
+        //处理按键被松开的事件
+        @Override
+        public void keyReleased(KeyEvent e) {
+            //捕获的系统传入的按键的虚拟键值
+            int keyCode = e.getKeyCode();
+            //当按下空格键，用力向上飞
+            if(keyCode == KeyEvent.VK_SPACE){
+                bird.down();
+            }
+        }
     }
     private void initGame(){
         backGround = new GameBackGround();
+        bird = new Bird();
 
         //启动用于刷新窗口的线程
         new Thread(this).start();
@@ -62,6 +101,7 @@ public class GameFrame extends Frame implements Runnable{
     * */
     public void update(Graphics g){
         backGround.draw(g);
+        bird.draw(g);
     }
 
     @Override

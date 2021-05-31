@@ -19,9 +19,13 @@ public class Constant {
 
     //图片资源路径
     public static final String BK_IMG_PATH = "img/land.png";
+    public static final String[] BIRDS_IMG_PATH = {"img/bird_1.png","img/bird_up.png","img/bird_down.png"};
 
     public static final int GAME_INTERVAL = 33;
 
     //游戏背景色
     public static final Color BK_COLOR = new Color(0x4bc4df);
+
+    //定义标题栏的高度
+    public static final int TOP_BAR_HEIGHT = 25;
 }

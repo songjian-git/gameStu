@@ -20,4 +20,14 @@ public class GameUtil {
         }
         return null;
     }
+    /*
+    * 求本次调用该方法时对于概率用的事件是否发生的方法
+    * @Param num 取之范围是1-100，代表事件发生的概率的百分比，1代表1%
+    * */
+    public static boolean isInPercent(int num){
+        return getRandomNumber(1,101) <= num;
+    }
+    public static int getRandomNumber(int min, int max){
+        return (int)(Math.random() * (max-min)+min);
+    }
 }

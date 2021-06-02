@@ -77,7 +77,7 @@ public class Bird {
                 }
                 y += dealtY;
                 //撞到下沿
-                if(y > Constant.FRAME_HEIGHT - (images[state].getHeight(null)>>1)){
+                if(y > Constant.FRAME_WIDTH - (images[state].getHeight(null)>>1)){
                     state = STATE_DIE;
                     reset();
                 }

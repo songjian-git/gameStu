@@ -20,6 +20,7 @@ public class Constant {
     //图片资源路径
     public static final String BK_IMG_PATH = "img/land.png";
     public static final String[] BIRDS_IMG_PATH = {"img/bird_1.png","img/bird_up.png","img/bird_down.png"};
+    public static final String[] CLOOUD_IMG_PATH = {"img/cloud0.png","img/cloud1.png"};
 
     public static final int GAME_INTERVAL = 33;
 
@@ -28,4 +29,8 @@ public class Constant {
 
     //定义标题栏的高度
     public static final int TOP_BAR_HEIGHT = 2;
+
+    //云出生的概率
+    public static final int CLOUD_BORN_PERCENT = 2;
+    public static final int CLOUD_SPEED = 2;
 }

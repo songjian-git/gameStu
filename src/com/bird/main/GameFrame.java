@@ -18,9 +18,16 @@ public class GameFrame extends Frame implements Runnable{
 
     //创建游戏背景对象
     private GameBackGround backGround;
+    //游戏前景对象
+    private FrontGround frontGround;
 
     //定义小鸟对象
     private Bird bird;
+
+    //所有在屏幕上绘制的内容，都是通过系统线程绘制的
+    //系统线程完成的工作：屏幕内容的绘制，窗口的事件的监听和处理
+    //目前项目中存在两个线程完成任务。一个是系统线程，一个是自己创建启动的线程，负责调用repaint()
+    //两个线程会抢夺系统资源，可能会出现，一次刷新绘制的内容，并没有在一次刷新周期中完成。
 
     //在构造方法中对我们的游戏窗口做初始化工作
     public GameFrame(){
@@ -84,6 +91,7 @@ public class GameFrame extends Frame implements Runnable{
     }
     private void initGame(){
         backGround = new GameBackGround();
+        frontGround = new FrontGround();
         bird = new Bird();
 
         //启动用于刷新窗口的线程
@@ -97,11 +105,12 @@ public class GameFrame extends Frame implements Runnable{
     * 参数g：是画笔。是系统提供的画笔。系统进行实例化
     *
     * 关于repaint调用：单独启动一个线程，在单独的线程中去不断的去调用repaint()
-    * 需要在单独的线程中调用repaint(),让系统对整个窗口进行重绘
+    * 需要在单独的线程中快速的调用repaint(),让系统对整个窗口进行重绘
     * */
     public void update(Graphics g){
         backGround.draw(g);
         bird.draw(g);
+        frontGround.draw(g);
     }
 
     @Override
